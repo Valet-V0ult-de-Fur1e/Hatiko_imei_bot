@@ -26,5 +26,13 @@ async def capture_name(message: Message, state: FSMContext):
     else:
         if req['in_whitelist']:
             check_imei = get_imei_info(user_id, imei)
-            print(check_imei)
-            await message.answer(str(check_imei))
+            if check_imei['status'] == 200:
+                await message.answer(check_imei['data'])
+            elif check_imei['status'] == 404:
+                await message.answer(check_imei['message'])
+            elif check_imei['status'] == 500:
+                await message.answer(check_imei['message'])
+            elif check_imei['status'] == 400:
+                await message.answer(check_imei['message'])
+            elif check_imei['status'] == 404:
+                await message.answer(check_imei['message'])

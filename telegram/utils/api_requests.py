@@ -38,6 +38,7 @@ def whitelist_delete_user(user_tg_id):
 def get_imei_info(user_tg_id, imei):
     token = create_access_token({"tg_id": user_tg_id})
     req = requests.get(f"http://127.0.0.1:8000/imei/get_imei_info/{token}/{imei}")
-    if req.status_code == 200:
+    try:
         return req.json()
-    return None
+    except BaseException:
+        return None
