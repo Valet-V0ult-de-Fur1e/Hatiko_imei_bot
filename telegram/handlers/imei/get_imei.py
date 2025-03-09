@@ -21,13 +21,31 @@ async def capture_name(message: Message, state: FSMContext):
     imei = message.text
     user_id = message.from_user.id
     req = user_auth(user_id)
+    print(1123123, req)
     if req is None:
         await message.answer("Кажется какие-то проблемы на стороне сервера!!!")
     else:
         if req['in_whitelist']:
             check_imei = get_imei_info(user_id, imei)
+            print(check_imei)
+            def get_device_info(data):
+                head = data['header']
+                body = data['items']
+                out_message = f"""бренд: {head['brand']} \nмодель: {head['model']} \nimei: {head['imei']}"""
+                for line in body:
+                    if line['role'] == "header":
+                        out_message += "\n" + line['title']
+                    elif line['role'] == "item":
+                        out_message += f"\n {line['title']}: {line['content']}"
+                    elif line['role'] == "button":
+                        break
+                return out_message
             if check_imei['status'] == 200:
-                await message.answer(check_imei['data'])
+                await message.answer_photo(
+                    photo=check_imei['data']['header']['photo'],
+                    caption="Изображение устройства"
+                    )
+                await message.answer(get_device_info(check_imei['data']))
             elif check_imei['status'] == 404:
                 await message.answer(check_imei['message'])
             elif check_imei['status'] == 500:
@@ -36,3 +54,5 @@ async def capture_name(message: Message, state: FSMContext):
                 await message.answer(check_imei['message'])
             elif check_imei['status'] == 404:
                 await message.answer(check_imei['message'])
+        else:
+            await message.answer("Доступ запрещен")

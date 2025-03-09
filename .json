@@ -1,0 +1,166 @@
+{
+    "status": 200,
+    "message": "Successfully",
+    "data": {
+      "header": {
+        "brand": "NOKIA",
+        "model": "N900",
+        "imei": "356938035643809",
+        "photo": "https://www.imei.info/media/t/gsm-cache/L/k/wuMx6R-s.jpg"
+      },
+      "items": [
+        {
+          "role": "header",
+          "title": "Basic Info"
+        },
+        {
+          "role": "item",
+          "title": "Code Name",
+          "content": "5800 XPRESSMUSIC"
+        },
+        {
+          "role": "item",
+          "title": "Relase Year",
+          "content": "2009"
+        },
+        {
+          "role": "item",
+          "title": "Operating systems",
+          "content": "OS z Palca"
+        },
+        {
+          "role": "item",
+          "title": "Chipset",
+          "content": "ARM Cortex A8"
+        },
+        {
+          "role": "item",
+          "title": "GPU type",
+          "content": ""
+        },
+        {
+          "role": "header",
+          "title": "Dimensions"
+        },
+        {
+          "role": "item",
+          "title": "Height",
+          "content": "110.9"
+        },
+        {
+          "role": "item",
+          "title": "Width",
+          "content": "59.8 [mm]"
+        },
+        {
+          "role": "item",
+          "title": "Thickness",
+          "content": "18.0 [mm]"
+        },
+        {
+          "role": "header",
+          "title": "Display"
+        },
+        {
+          "role": "item",
+          "title": "Display type",
+          "content": "TFT"
+        },
+        {
+          "role": "item",
+          "title": "Display ",
+          "content": "480x800 [px]"
+        },
+        {
+          "role": "item",
+          "title": "Diagonal ",
+          "content": "3.5 [in]"
+        },
+        {
+          "role": "header",
+          "title": "Network"
+        },
+        {
+          "role": "item",
+          "title": "5G",
+          "content": "False"
+        },
+        {
+          "role": "item",
+          "title": "4G",
+          "content": "False"
+        },
+        {
+          "role": "item",
+          "title": "3G",
+          "content": "True"
+        },
+        {
+          "role": "item",
+          "title": "2G",
+          "content": "True"
+        },
+        {
+          "role": "header",
+          "title": "Battery"
+        },
+        {
+          "role": "item",
+          "title": "Type",
+          "content": "Li-Ion"
+        },
+        {
+          "role": "item",
+          "title": "Capacity",
+          "content": "1320.0 [mAh]"
+        },
+        {
+          "role": "header",
+          "title": "Camera"
+        },
+        {
+          "role": "item",
+          "title": "Main",
+          "content": "4.92 [MPx]"
+        },
+        {
+          "role": "item",
+          "title": "Selfie",
+          "content": "0.31 [MPx]"
+        },
+        {
+          "role": "button",
+          "title": "Full device specification",
+          "content": "https://www.imei.info/phonedatabase/nokia-n900/"
+        },
+        {
+          "role": "header",
+          "title": "Found an error? Help us and let us know:"
+        },
+        {
+          "role": "button",
+          "title": "Support Team Contact",
+          "content": "mailto:info@imei.info"
+        },
+        {
+          "role": "header",
+          "title": "Check N900 specific : "
+        },
+        {
+          "role": "group",
+          "items": [
+            {
+              "role": "button",
+              "title": "Services",
+              "content": "https://www.imei.info/imei-checker/"
+            },
+            {
+              "role": "button",
+              "title": "Tutorials",
+              "content": "https://www.hardreset.info/devices/NOKIA/nokia-n900/tutorials/"
+            }
+          ]
+        }
+      ]
+    }
+  }

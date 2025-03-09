@@ -19,5 +19,4 @@ def validate_imei(imei: str) -> bool:
             if digit > 9:
                 digit -= 9
         total += digit
-    print(total % 10 == 0)
     return total % 10 == 0
