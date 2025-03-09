@@ -2,8 +2,7 @@ from forms.imei_form import Form
 from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
-
-from utils.api_requests import user_auth, get_imei_info
+from utils.api_requests import user_auth, get_imei_info, get_imei_services_list
 
 
 questionnaire_router = Router()
@@ -21,13 +20,11 @@ async def capture_name(message: Message, state: FSMContext):
     imei = message.text
     user_id = message.from_user.id
     req = user_auth(user_id)
-    print(1123123, req)
     if req is None:
         await message.answer("Кажется какие-то проблемы на стороне сервера!!!")
     else:
         if req['in_whitelist']:
             check_imei = get_imei_info(user_id, imei)
-            print(check_imei)
             def get_device_info(data):
                 head = data['header']
                 body = data['items']
@@ -46,6 +43,11 @@ async def capture_name(message: Message, state: FSMContext):
                     caption="Изображение устройства"
                     )
                 await message.answer(get_device_info(check_imei['data']))
+                for source in get_imei_services_list()['data'][:-1]:
+                    source_services = f"{source['source']}"
+                    for service in source['data']:
+                        source_services += f"\n{service['name']} - {service['price']}"
+                    await message.answer(source_services)
             elif check_imei['status'] == 404:
                 await message.answer(check_imei['message'])
             elif check_imei['status'] == 500:

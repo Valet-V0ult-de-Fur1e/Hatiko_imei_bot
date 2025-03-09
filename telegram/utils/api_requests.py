@@ -42,3 +42,11 @@ def get_imei_info(user_tg_id, imei):
         return req.json()
     except BaseException:
         return None
+
+
+def get_imei_services_list():
+    req = requests.get("http://127.0.0.1:8000/imei/get_imei_full_services")
+    try:
+        return req.json()
+    except BaseException:
+        return None
